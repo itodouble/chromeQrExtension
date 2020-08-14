@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "chrome qr extension",
+  "version": "1.0.0",
+  "description": "chrome生成二维码插件",
+  "icons": {
+    "16": "img/icon.png",
+    "48": "img/icon.png",
+    "128": "img/icon.png"
+  },
+  "background": {
+    "page": "html/background.html"
+  },
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_title": "chrome生成二维码插件",
+    "default_popup": "html/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/lib/jquery.min.js", "js/lib/qrcode.js", "js/content-script.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "homepage_url": "https://itodouble.top"
+}
